@@ -67,4 +67,22 @@ public class DepressedCubicSolver {
         return y;
     }
 
+    public static double[] depressedCubicRemainder(int A, int B, int C) {
+        /* Divides the depressed cubic x^3 + AX - B by the linear term x+3 to get a quadratic and a remainder.
+        The quadratic times x+C, plus the remainder, will equal the depressed cubic.
+        If x+C is a root of the depressed cubic, the remainder will be 0.
+        Returns {b, c, rem} where x^2 + bx + c times x + C, plus rem, equals x^3 + AX - B
+         */
+        int cubeConst = -B;
+        double c = cubeConst / C; //Case sensitive; be careful
+        int b = -1* C;
+        double xCoefSoFar = C*b + c;
+        double xToCancel = xCoefSoFar - A;
+        c += (-1 * xToCancel);
+        double constProd = c * C;
+        double rem = cubeConst - C*c;
+        double[] ret = {(double) b, c, rem};
+        return ret;
+    }
+
 }
