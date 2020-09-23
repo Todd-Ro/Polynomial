@@ -26,5 +26,14 @@ public class Main {
 		int newB = -15;
 		int C = 3;
 		System.out.println(Arrays.toString(DepressedCubicSolver.depressedCubicRemainder(newA, newB, C)));
+
+		System.out.println();
+
+		int a = 2;
+		int b = -30;
+		int c = 162;
+		int d = -350;
+		double[] compressed = CubicCompressor.compressCubic(a, b, c, d);
+		System.out.println(Arrays.toString(compressed)); //Should be 6.0, -20.0, 5.0
 	}
 }
